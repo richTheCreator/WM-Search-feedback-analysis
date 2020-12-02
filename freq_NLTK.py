@@ -1,5 +1,7 @@
 import nltk
 import streamlit as st
+nltk.download('stopwords')
+nltk.download('punkt')
 
 
 def freq_NLTK():
