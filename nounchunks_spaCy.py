@@ -12,8 +12,16 @@ def nounchunks():
 
     alt.themes.enable('vox')
 
-    df_nouns = pd.read_csv(
-        './csv/pos_nounchunks.csv')
+    df_nouns = []
+
+    sidebar_data_src = st.sidebar.radio(
+        " Data source", ['Responses', 'Search Terms'], 0)
+    if sidebar_data_src == 'Responses':
+        df_nouns = pd.read_csv(
+            './csv/nounchunks_responses.csv')
+    if sidebar_data_src == 'Search Terms':
+        df_nouns = pd.read_csv(
+            './csv/nounchunks_search-terms.csv')
 
     st.write('### Noun test')
     noun_chart = alt.Chart(df_nouns).mark_bar(size=20).encode(

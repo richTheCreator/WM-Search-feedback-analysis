@@ -3,7 +3,6 @@ import nltk
 from nltk.probability import FreqDist
 
 
-@st.cache
 def fetch_nlp_desc(type='df'):
     import spacy
     nlp = spacy.load("en_core_web_lg")
@@ -12,9 +11,9 @@ def fetch_nlp_desc(type='df'):
     # applies spaCy nlp to each word
     # returns a generator
     df = pd.read_csv(
-        './csv/search_feedback.csv', usecols=['response'])
-    df.dropna(subset=['response'], inplace=True)
-    list_text = df.response.tolist()
+        './csv/search_feedback.csv', usecols=['queryText'])
+    df.dropna(subset=['queryText'], inplace=True)
+    list_text = df.queryText.tolist()
     proc_list = [item.lower() for item in list_text]
     if type == 'list':
         text = str(proc_list)
@@ -45,7 +44,7 @@ def nounChunk(amount, type, src=fetch_nlp_desc()):
 
 def pos_spaCy():
     df = nounChunk(100, 'df')
-    df.to_csv('./csv/pos_nounchunks.csv', index=False)
+    df.to_csv('./csv/nounchunks_search-terms.csv', index=False)
     # st.write(df)
 
 

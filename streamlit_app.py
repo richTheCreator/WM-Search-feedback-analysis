@@ -14,7 +14,6 @@ from entity_classification import entities
 st.set_page_config(
     page_title="WM Search Feedback",
     page_icon="WM",
-    layout="wide",
     initial_sidebar_state="expanded",
 )
 LOGGER = get_logger(__name__)
