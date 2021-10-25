@@ -22,7 +22,7 @@ def intro():
     """
     )
 
-    col1, col2, col3 = st.beta_columns(3)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.write(f"### Date Range")
         st.write("7/8 - 11/25")
@@ -36,7 +36,7 @@ def intro():
         n = len(pd.unique(df['regionSlug']))
         st.write(n)
 
-    col4, col5 = st.beta_columns(2)
+    col4, col5 = st.columns(2)
     with col4:
         n = df['isMobileDevice'].value_counts()
 
@@ -61,7 +61,7 @@ def intro():
 
         st.table(n)
 
-    col6, col7 = st.beta_columns(2)
+    col6, col7 = st.columns(2)
     with col6:
         st.write(f"### User auth \n How many people are signed in?")
         n = df['email'].isnull().value_counts()

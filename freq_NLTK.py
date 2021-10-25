@@ -73,6 +73,8 @@ def freq_NLTK():
     unigram_df = unigram_series.to_frame().reset_index()
     unigram_df = unigram_df.rename(
         columns={'index': 'Term', 0: 'Freq'})
+    unigram_df.Term = [''.join(entry) for entry in unigram_df.Term]  
+
     st.write('## Uni-grams')
     uni_chart = alt.Chart(unigram_df).mark_bar(size=20).encode(
         x=alt.X('Freq', axis=alt.Axis(title='Counts')),
@@ -95,6 +97,8 @@ def freq_NLTK():
     bigram_df = bigram_series.to_frame().reset_index()
     bigram_df = bigram_df.rename(
         columns={'index': 'Term', 0: 'Freq'})
+    bigram_df.Term = [' '.join(entry) for entry in bigram_df.Term]
+
     st.write('## Bi-grams')
     bi_chart = alt.Chart(bigram_df).mark_bar(size=20).encode(
         x=alt.X('Freq', axis=alt.Axis(title='Counts')),
@@ -117,6 +121,8 @@ def freq_NLTK():
     trigram_df = trigram_series.to_frame().reset_index()
     trigram_df = trigram_df.rename(
         columns={'index': 'Term', 0: 'Freq'})
+    trigram_df.Term = [' '.join(entry) for entry in trigram_df.Term]
+
     st.write('## Tri-grams')
     tri_chart = alt.Chart(trigram_df).mark_bar(size=20).encode(
         x=alt.X('Freq', axis=alt.Axis(title='Counts')),

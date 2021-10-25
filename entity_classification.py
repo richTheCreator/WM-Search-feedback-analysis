@@ -75,7 +75,7 @@ def entities():
 
     # for df in entities_df:
     #     st.write(f'### {df}')
-    #     col1, col2 = st.beta_columns(2)
+    #     col1, col2 = st.columns(2)
     #     with col1:
     #         chart_gen(entities_df[df][:25])
     #     with col2:

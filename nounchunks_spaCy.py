@@ -15,7 +15,7 @@ def nounchunks():
     df_nouns = []
 
     sidebar_data_src = st.sidebar.radio(
-        " Data source", ['Responses', 'Search Terms'], 0)
+        " Data source", ['Responses', 'Search Terms'], 0, key=123)
     if sidebar_data_src == 'Responses':
         df_nouns = pd.read_csv(
             './csv/nounchunks_responses.csv')
